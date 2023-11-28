@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  },
+  "name": "codeword",
+  "description": "A Discord bot providing a playable game of codeword",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abel-baker/codeword.git"
+  },
+  "author": "abel baker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abel-baker/codeword/issues"
+  },
+  "homepage": "https://github.com/abel-baker/codeword#readme"
+}
