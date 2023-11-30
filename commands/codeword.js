@@ -14,7 +14,9 @@ const slashCodeword = {
     client.games.set(address, game);
 
     await interaction.reply('Beginning new game of Codeword.');
-    await interaction.followUp(`Blue words: ${game.blueIndices.map((i) => Array.from(game.wordlist)[i])}`)
+    await interaction.followUp(`Blue words: ${game.blueIndices.map((i) => Array.from(game.wordlist)[i])}`);
+    await interaction.followUp(`Red words: ${game.redIndices.map((i) => Array.from(game.wordlist)[i])}`);
+    await interaction.followUp({ content: `The assassin word is: ${Array.from(game.wordlist)[game.assassinIndex]}`, ephemeral: true });
   }
 };
 

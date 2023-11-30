@@ -15,6 +15,7 @@ class Game {
     }
     console.log(`Creating word list`, this.wordlist);
 
+    // get ready to assign some words to each team
     const indicesToAssign = [
        0, 1, 2, 3, 4, 
        5, 6, 7, 8, 9,
@@ -24,6 +25,7 @@ class Game {
     let m = 24, i;
     while (m) {
       i = Math.floor(Math.random() * m--);
+      // beautiful shuffle syntax
       [indicesToAssign[m], indicesToAssign[i]] = [indicesToAssign[i], indicesToAssign[m]];
     }
     console.log(`Shuffled indices`,indicesToAssign);
@@ -35,6 +37,7 @@ class Game {
     }
     console.log(`Selected 9 blue indices`, this.blueIndices);
     // console.log(`Selected 9 blue words`,this.blueIndices.map((i) => Array.from(this.wordlist)[i]));
+
     // red indexes (8)
     this.redIndices = [];
     while (this.redIndices.length < 8) {
@@ -43,8 +46,8 @@ class Game {
     console.log(`Selected 8 red indices`, this.redIndices);
     // console.log(`Selected 8 red words`,this.redIndices.map((i) => Array.from(this.wordlist)[i]));
     // assassin index (1)
-    this.assassinIndices = indicesToAssign.pop();
-    console.log(`Selected 1 assassin index`, this.assassinIndices);
+    this.assassinIndex = indicesToAssign.pop();
+    console.log(`Selected 1 assassin index`, this.assassinIndex);
 
     // revealed indexes (0 to 25?)
   }
