@@ -50,6 +50,7 @@ class Game {
     console.log(`Selected 1 assassin index`, this.assassinIndex);
 
     // revealed indexes (0 to 25?)
+    this.revealedIndices = [];
   }
 
   get address() {

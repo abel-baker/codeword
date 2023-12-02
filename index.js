@@ -20,16 +20,16 @@ for (const file of commandFiles) {
 }
 
 // Read interactions
-// client.interactions = new Collection();
-// const interactionsPath = path.join(__dirname, 'interactions');
-// const interactionFiles = fs.readdirSync(interactionsPath).filter(file => file.endsWith('.js'));
+client.interactions = new Collection();
+const interactionsPath = path.join(__dirname, 'interactions');
+const interactionFiles = fs.readdirSync(interactionsPath).filter(file => file.endsWith('.js'));
 
-// for (const file of interactionFiles) {
-//   const interactionPath = path.join(interactionsPath, file);
-//   const interaction = require(interactionPath);
+for (const file of interactionFiles) {
+  const interactionPath = path.join(interactionsPath, file);
+  const interaction = require(interactionPath);
 
-//   client.interactions.set(interaction.name, (...args) => interaction.execute(...args));
-// }
+  client.interactions.set(interaction.name, (...args) => interaction.execute(...args));
+}
 
 // Read events
 const eventsPath = path.join(__dirname, 'events');

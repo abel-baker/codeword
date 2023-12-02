@@ -12,13 +12,13 @@ const slashCodeword = {
 
     console.log(`Creating new Game from command ${interaction.id}`);
     const game = new Game(guild, channel);
+    client.game = game;
     client.games.set(address, game);
 
-    await interaction.reply('Beginning new game of Codeword.');
-    await interaction.followUp(`Blue words: ${game.blueIndices.map((i) => Array.from(game.wordlist)[i])}`);
-    await interaction.followUp(`Red words: ${game.redIndices.map((i) => Array.from(game.wordlist)[i])}`);
+    await interaction.reply({ content: `Beginning a new game of Codeword.`,
+      components: componentGrid(game, true, false) });
     await interaction.followUp({ content: `The assassin word is: ${Array.from(game.wordlist)[game.assassinIndex]}`, ephemeral: true,
-      components: componentGrid(game) });
+      components: componentGrid(game, false, true) });
   }
 };
 
