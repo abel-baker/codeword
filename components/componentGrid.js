@@ -15,7 +15,7 @@ const wordButton = (index, word, color, active = true) => {
     .setDisabled(!active);
 }
 
-const grid = (game, active = false, revealed = false) => {
+const grid = (game, revealAll = false) => {
   let gridOut = []; // the components property of a message embed is an array of ActionRows
 
   for (let j = 0; j < 5; j++) {
@@ -24,12 +24,14 @@ const grid = (game, active = false, revealed = false) => {
       let i = j*5 + k; // wordlist index
 
       let word = Array.from(game.wordlist)[i];
-      let color = !revealed ? "gray" 
+      let revealed = game.revealedIndices.includes(i);
+
+      let color = !revealed && !revealAll ? "gray"
         : game.blueIndices.includes(i) ? "blue"
         : game.redIndices.includes(i) ? "red"
         : "gray";
 
-      // active = !game.revealedIndices.includes(i);
+      let active = !revealed && !revealAll;
 
       let button = wordButton(i, word, color, active);
       row.push(button);

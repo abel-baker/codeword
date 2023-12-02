@@ -14,17 +14,17 @@ const clickGuess = {
       return;
     }
 
-    game.revealedIndices.push(index);
+    game.revealedIndices.push(Number(index));
     console.log(`Index ${index} added to revealedIndices`, game.revealedIndices);
     const team = index == game.assassinIndex ? "assassin"
     : game.blueIndices.includes(index) ? "blue"
     : game.redIndices.includes(index) ? "red"
     : "none";
 
-    const content = `The word guessed is ${word.toUpperCase()}.`
-    await interaction.reply({ content, components: componentGrid(game, true) });
+    const content = `The word guessed is ${word.toUpperCase()}.`;
     await interaction.update({ components: [] });
-    // interaction.message.components = [];
+    await interaction.followUp({ content, components: componentGrid(game, false) });
+    // await interaction.editReply()
   }
 }
 

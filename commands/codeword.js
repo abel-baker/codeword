@@ -16,9 +16,9 @@ const slashCodeword = {
     client.games.set(address, game);
 
     await interaction.reply({ content: `Beginning a new game of Codeword.`,
-      components: componentGrid(game, true, false) });
+      components: componentGrid(game, false) });
     await interaction.followUp({ content: `The assassin word is: ${Array.from(game.wordlist)[game.assassinIndex]}`, ephemeral: true,
-      components: componentGrid(game, false, true) });
+      components: componentGrid(game, true) });
   }
 };
 
