@@ -1,6 +1,6 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
-const wordButton = (index, word, color, active = true) => {
+const wordButton = (index, word, color, active = true, assassin = false) => {
   let style = ButtonStyle.Secondary;
   switch (color) {
     case "blue":
@@ -8,11 +8,14 @@ const wordButton = (index, word, color, active = true) => {
     case "red":
       style = ButtonStyle.Danger; break;
   }
-  return new ButtonBuilder()
+  const buttonOut = new ButtonBuilder()
     .setCustomId(`clickGuess/${index}`)
     .setLabel(word.toUpperCase())
     .setStyle(style)
     .setDisabled(!active);
+
+  // if (assassin) buttonOut.setEmoji('123456789012345678');
+  return buttonOut;
 }
 
 const grid = (game, revealAll = false) => {
@@ -25,6 +28,7 @@ const grid = (game, revealAll = false) => {
 
       let word = Array.from(game.wordlist)[i];
       let revealed = game.revealedIndices.includes(i);
+      let assassin = game.assassinIndex == i;
 
       let color = !revealed && !revealAll ? "gray"
         : game.blueIndices.includes(i) ? "blue"
@@ -33,7 +37,7 @@ const grid = (game, revealAll = false) => {
 
       let active = !revealed && !revealAll;
 
-      let button = wordButton(i, word, color, active);
+      let button = wordButton(i, word, color, active, assassin);
       row.push(button);
     }
 
