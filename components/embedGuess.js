@@ -1,7 +1,7 @@
 const embed = (game, user, guessedIndex) => {
   const out = {
     color: 0xff1500,
-    title: `${user} guesses ${Array.from(game.wordlist)[guessedIndex]}`
+    title: `${user.displayName} guesses ${Array.from(game.wordlist)[guessedIndex]}`
   }
 
   return out;

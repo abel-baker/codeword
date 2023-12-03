@@ -23,12 +23,12 @@ const clickGuess = {
     : game.redIndices.includes(index) ? "red"
     : "none";
 
-    const content = `${member} guesses *${word.toUpperCase()}*`;
+    const content = `${member.user.displayName} guesses *${word.toUpperCase()}*`;
     await interaction.update({ components: [] });
     // await interaction.followUp({ embeds: [embedGuess(game, member, index)] });
     // await wait(500);
     // await interaction.followUp({ content: `Score: blue(2) red(0)`, components: componentGrid(game, false) });
-    await interaction.followUp({ embeds: [embedGuess(game, member, index)], components: componentGrid(game, false) });
+    await interaction.followUp({ embeds: [embedGuess(game, member.user, index)], components: componentGrid(game, false) });
 
   }
 }

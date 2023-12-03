@@ -14,7 +14,7 @@ const wordButton = (index, word, color, active = true, assassin = false) => {
     .setStyle(style)
     .setDisabled(!active);
 
-  // if (assassin) buttonOut.setEmoji('123456789012345678');
+  if (assassin && !active) buttonOut.setEmoji('☠️');
   return buttonOut;
 }
 

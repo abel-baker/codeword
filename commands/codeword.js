@@ -17,7 +17,8 @@ const slashCodeword = {
 
     await interaction.reply({ content: `Beginning a new game of Codeword.`,
       components: componentGrid(game, false) });
-    await interaction.followUp({ content: `The assassin word is: ${Array.from(game.wordlist)[game.assassinIndex].toUpperCase()}`, ephemeral: true,
+    // content: `The assassin word is: ${Array.from(game.wordlist)[game.assassinIndex].toUpperCase()}`
+    await interaction.followUp({ content: `Here are your assignments:`, ephemeral: true,
       components: componentGrid(game, true) });
   }
 };
