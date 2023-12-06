@@ -1,3 +1,4 @@
+const config = require('../config.json');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 const wordButton = (index, word, color, active = true, assassin = false) => {
@@ -20,11 +21,13 @@ const wordButton = (index, word, color, active = true, assassin = false) => {
 
 const grid = (game, revealAll = false) => {
   let gridOut = []; // the components property of a message embed is an array of ActionRows
+  const rows = config.grid_size.grid_size_rows;
+  const cols = config.grid_size.grid_size_cols;
 
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < rows; j++) {
     let row = []; // make an array of buttons; this will become a new ActionRow for each row
-    for (let k = 0; k < 5; k++) {
-      let i = j*5 + k; // wordlist index
+    for (let k = 0; k < cols; k++) {
+      let i = j*rows + k; // wordlist index
 
       let word = Array.from(game.wordlist)[i];
       let revealed = game.revealedIndices.includes(i);
