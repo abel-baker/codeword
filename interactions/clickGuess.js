@@ -28,7 +28,7 @@ const clickGuess = {
     // await interaction.followUp({ embeds: [embedGuess(game, member, index)] });
     // await wait(500);
     // await interaction.followUp({ content: `Score: blue(2) red(0)`, components: componentGrid(game, false) });
-    await interaction.followUp({ embeds: [embedGuess(game, member.user, index)], components: componentGrid(game, false) });
+    await interaction.channel.send({ embeds: [embedGuess(game, member.user, index)], components: componentGrid(game, false) });
 
   }
 }

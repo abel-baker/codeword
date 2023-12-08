@@ -29,5 +29,10 @@
   "grid_size": {
     "grid_size_cols": 3,
     "grid_size_rows": 5
+  },
+  "colors": {
+    "yellow": "f1b42f",
+    "blue": "0x5865f2",
+    "red": "ff1500"
   }
 }
